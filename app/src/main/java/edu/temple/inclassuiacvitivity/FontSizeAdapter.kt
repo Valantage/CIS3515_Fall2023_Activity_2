@@ -22,6 +22,12 @@ class FontSizeAdapter(_context: Context, _sizes: Array<Int>) : BaseAdapter() {
 
     // the job of get view is to reurn a view whose data corresponds to the element in the collection found at this position
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        return (getDropDownView(position, convertView, parent) as TextView).apply {
+            textSize = 24f
+        }
+    }
+
+    override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val textView: TextView
 
         if(convertView == null) {
@@ -36,7 +42,5 @@ class FontSizeAdapter(_context: Context, _sizes: Array<Int>) : BaseAdapter() {
         textView.textSize = fontSizes[position].toFloat()
         return textView
     }
-
-
 
 }
