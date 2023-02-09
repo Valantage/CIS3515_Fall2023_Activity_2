@@ -18,9 +18,7 @@ class MainActivity : AppCompatActivity() {
         val numberArray = Array(50) {2 * (it + 1)}
         //Log.d("Array Value:", "Howdy")
         /* Step 2: Create adapter to display items from array in Spinner */
-        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, numberArray)
-
-
+        spinner.adapter = FontSizeAdapter(this, numberArray)
 
         // Step 3: Change TextView's text size to the number selected in the Spinner */
         spinner.onItemSelectedListener = object: OnItemSelectedListener {
